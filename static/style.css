@@ -1,0 +1,180 @@
+:root {
+  --bg-1: #f4efe6;
+  --bg-2: #e9f3e7;
+  --surface: #ffffff;
+  --ink: #1b1f23;
+  --muted: #5d636a;
+  --accent: #0f766e;
+  --accent-2: #155e75;
+  --danger: #b42318;
+  --border: #d0d7de;
+  --shadow: 0 14px 42px rgba(15, 118, 110, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 0%, var(--bg-2), var(--bg-1) 55%);
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 18px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #fff;
+  padding: 12px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-text {
+  min-height: 20px;
+  color: var(--muted);
+  margin: 10px 0 4px;
+}
+
+.error-text {
+  min-height: 20px;
+  color: var(--danger);
+  margin: 0 0 8px;
+}
+
+.result-section,
+.map-section {
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.address-output {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #f6f8fa;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  line-height: 1.5;
+}
+
+.copy-btn {
+  margin-top: 10px;
+}
+
+.suggestions-section {
+  margin-top: 14px;
+}
+
+.suggestions-section h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.suggestions-list {
+  display: grid;
+  gap: 8px;
+}
+
+.suggestion-item {
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  line-height: 1.45;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+  border-color: var(--accent);
+  background: #eefaf8;
+}
+
+.suggestion-item.active {
+  border-color: var(--accent-2);
+  background: #e7f4f2;
+}
+
+#mapPreview {
+  border: 0;
+  width: 100%;
+  min-height: 320px;
+  border-radius: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .app-shell {
+    margin: 16px auto;
+    padding: 12px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}

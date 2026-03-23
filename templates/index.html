@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Maps Link to Address</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card">
+      <h1>Maps Link to Postal Address</h1>
+      <p class="subtitle">Paste a Google Maps URL, short link, or raw coordinates (lat,lng).</p>
+
+      <div class="input-row">
+        <input id="linkInput" type="text" placeholder="https://maps.google.com/... or 12.9716,77.5946" autocomplete="off">
+        <button id="convertBtn" type="button">Convert</button>
+      </div>
+
+      <p id="statusText" class="status-text" aria-live="polite"></p>
+      <p id="errorText" class="error-text" aria-live="polite"></p>
+
+      <section id="resultSection" class="result-section hidden">
+        <h2>Formatted Address</h2>
+        <pre id="addressOutput" class="address-output"></pre>
+        <button id="copyBtn" type="button" class="copy-btn">Copy to Clipboard</button>
+
+        <div id="suggestionsSection" class="suggestions-section hidden">
+          <h3>Other Suggestions</h3>
+          <div id="suggestionsList" class="suggestions-list"></div>
+        </div>
+      </section>
+
+      <section id="mapSection" class="map-section hidden">
+        <h2>Map Preview</h2>
+        <iframe
+          id="mapPreview"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          title="Map Preview">
+        </iframe>
+      </section>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
